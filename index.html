@@ -2,606 +2,610 @@
 <html lang="lv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#101722">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101827">
 <title>LATVIA LIFE RP</title>
 
 <style>
 :root {
-  --bg: #101722;
-  --panel: #192433;
-  --panel2: #202e40;
-  --green: #38d982;
-  --text: #f5f7fb;
-  --muted: #a8b5c7;
-  --red: #ff6262;
+  --bg: #0b1120;
+  --panel: #151f32;
+  --panel2: #1d2a40;
+  --text: #f4f7fb;
+  --muted: #aab7ca;
+  --red: #b52d43;
+  --green: #28b779;
+  --border: #2c3b53;
 }
 * { box-sizing: border-box; }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Arial, sans-serif;
+  font-family: system-ui, Arial, sans-serif;
 }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
 header {
-  padding: 23px 16px;
-  background: linear-gradient(135deg,#172c3c,#183b32);
-  border-bottom: 2px solid var(--green);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #101827f5;
+  border-bottom: 1px solid var(--border);
+  padding: 15px;
 }
 .brand {
-  max-width: 950px;
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: .4px;
+}
+.brand span { color: #e84b60; }
+.header-info {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+main {
+  max-width: 760px;
   margin: auto;
-}
-.brand h1 { margin: 0; font-size: 27px; }
-.brand p { margin: 8px 0 0; color: #c6d7dc; }
-.container {
-  width: min(950px,100%);
-  padding: 17px 13px 100px;
-  margin: auto;
-}
-.panel {
-  background: var(--panel);
-  border: 1px solid #2b3a4e;
-  border-radius: 15px;
-  padding: 17px;
-  margin-bottom: 15px;
-}
-h2 { margin-top: 0; font-size: 21px; }
-h3 { margin-top: 0; }
-.muted { color: var(--muted); font-size: 14px; line-height: 1.5; }
-.stats {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 10px;
-}
-.stat {
-  background: var(--panel2);
-  padding: 13px;
-  border-radius: 10px;
-}
-.stat small { color: var(--muted); display: block; }
-.stat strong { display: block; margin-top: 7px; font-size: 20px; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 10px;
+  padding: 16px 14px 100px;
 }
 .card {
   background: var(--panel);
-  border: 1px solid #2b3a4e;
-  border-radius: 13px;
-  padding: 15px 10px;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 17px;
+  margin-bottom: 14px;
+}
+h2 { font-size: 19px; margin: 0 0 13px; }
+h3 { font-size: 16px; margin: 0 0 8px; }
+p { color: var(--muted); line-height: 1.5; }
+.balance {
+  font-size: 34px;
+  font-weight: 850;
+  margin: 6px 0;
+  overflow-wrap: anywhere;
+}
+.small { color: var(--muted); font-size: 13px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.tile {
+  background: var(--panel);
   color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  min-height: 105px;
+  padding: 15px 12px;
   text-align: left;
-  cursor: pointer;
-  min-width: 0;
+  transition: background .15s;
 }
-.card:active { transform: scale(.98); }
-.card .icon { display: block; font-size: 29px; margin-bottom: 10px; }
-.card strong { display: block; font-size: 15px; }
-.card small { display: block; margin-top: 6px; color: var(--muted); line-height: 1.4; }
-button, input, select { font: inherit; }
-.btn {
+.tile:active { background: var(--panel2); }
+.tile .icon { font-size: 27px; display: block; margin-bottom: 8px; }
+.tile strong { display: block; font-size: 15px; }
+.tile small { display: block; color: var(--muted); margin-top: 4px; }
+button.primary, button.secondary, button.danger {
   border: 0;
-  background: var(--green);
-  color: #082416;
+  border-radius: 11px;
   padding: 12px 15px;
-  font-weight: bold;
-  border-radius: 9px;
-  cursor: pointer;
-}
-.btn.secondary {
-  background: #304157;
   color: white;
+  font-weight: 700;
 }
-.btn.danger {
-  background: #612f39;
-  color: white;
-}
-.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.primary { background: var(--red); }
+.secondary { background: #31425c; }
+.danger { background: #8d2936; }
+button:disabled { opacity: .45; cursor: not-allowed; }
 input, select {
   width: 100%;
-  padding: 12px;
-  border-radius: 9px;
-  border: 1px solid #40516a;
-  background: #111b28;
-  color: white;
-  margin: 6px 0 13px;
-}
-label { font-size: 14px; color: var(--muted); }
-.item {
-  background: var(--panel2);
-  padding: 13px;
+  background: #0c1525;
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: 10px;
+  padding: 12px;
+  margin: 6px 0 12px;
+  min-height: 45px;
+}
+label { display: block; font-size: 13px; color: var(--muted); }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.actions button { flex: 1; min-width: 100px; }
+.item {
+  background: #0f192a;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 13px;
   margin: 9px 0;
 }
-.item p { color: var(--muted); font-size: 14px; }
+.item-title { font-weight: 750; }
+.item-info { color: var(--muted); font-size: 13px; margin: 5px 0 10px; }
 .badge {
   display: inline-block;
-  border-radius: 20px;
-  background: #214b39;
-  color: #8ef0b8;
-  padding: 5px 9px;
+  background: #263d53;
+  border-radius: 7px;
+  padding: 4px 8px;
   font-size: 12px;
 }
-#notice {
-  display: none;
-  position: sticky;
-  top: 5px;
-  z-index: 10;
-  background: #214b39;
-  padding: 12px;
-  border-radius: 9px;
-  margin-bottom: 12px;
-}
-.bottom {
+.hidden { display: none !important; }
+nav {
   position: fixed;
+  z-index: 10;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #111b28f5;
-  border-top: 1px solid #344257;
+  padding: 9px 8px calc(9px + env(safe-area-inset-bottom));
+  background: #101827f7;
+  border-top: 1px solid var(--border);
   display: flex;
   justify-content: space-around;
-  padding: 10px 3px calc(10px + env(safe-area-inset-bottom));
-  z-index: 20;
 }
-.bottom button {
-  background: none;
+nav button {
+  background: transparent;
   border: 0;
-  color: white;
+  color: var(--muted);
   font-size: 12px;
-  cursor: pointer;
+  padding: 6px;
 }
-.bottom span { display: block; font-size: 20px; margin-bottom: 3px; }
-footer { text-align: center; color: var(--muted); font-size: 12px; padding: 20px; }
-.hidden { display: none !important; }
+nav button span { display: block; font-size: 21px; margin-bottom: 3px; }
+nav button.active { color: white; }
+.notice {
+  border-left: 3px solid var(--green);
+  background: #153329;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+footer { color: var(--muted); font-size: 11px; text-align: center; padding: 20px 0; }
 @media(min-width:600px) {
-  .grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
-  .stats { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  main { padding-top: 22px; }
+  .grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
 }
 </style>
 </head>
 
 <body>
 <header>
-  <div class="brand">
-    <h1>🇱🇻 LATVIA LIFE RP</h1>
-    <p>Tava dzīve. Tavi noteikumi. Tava Latvija.</p>
-  </div>
+  <div class="brand">🇱🇻 LATVIA <span>LIFE RP</span></div>
+  <div class="header-info">Latvijas dzīves simulators · Spēles versija 2.0</div>
 </header>
 
-<main class="container">
-  <div id="notice"></div>
+<main>
+  <section id="setup" class="card hidden">
+    <h2>👤 Izveido savu tēlu</h2>
+    <p>Ievadi spēlētāja vārdu, lai sāktu savu dzīvi Latvijā.</p>
+    <label for="newName">Spēlētāja vārds</label>
+    <input id="newName" maxlength="24" placeholder="Piemēram, Jānis Bērziņš" autocomplete="nickname">
+    <button class="primary" style="width:100%" id="createBtn">Izveidot profilu</button>
+  </section>
 
-  <section id="home">
-    <div class="panel">
-      <span class="badge">BETA · 0.1</span>
-      <h2 style="margin-top:12px">Sveicināts Latvijā!</h2>
-      <p class="muted">Veido savu virtuālo dzīvi, strādā, iegādājies transportu un iepazīsti Latvijas pilsētas.</p>
-      <div class="stats">
-        <div class="stat"><small>💶 Nauda</small><strong id="money">500 €</strong></div>
-        <div class="stat"><small>⭐ Līmenis</small><strong id="level">1</strong></div>
-        <div class="stat"><small>💼 Darbs</small><strong id="jobStat">Bezdarbnieks</strong></div>
-        <div class="stat"><small>🚘 Transportlīdzekļi</small><strong id="carsStat">0</strong></div>
+  <section id="app">
+    <section id="home" class="page">
+      <div class="card">
+        <div class="small">Tavs spēlētājs</div>
+        <h2 id="welcome">Sveicināts!</h2>
+        <span class="badge" id="cityBadge">📍 Rīga</span>
+        <div class="small" style="margin-top:15px">Pieejamā nauda</div>
+        <div class="balance" id="cash">€ 2 500</div>
+        <div class="small" id="bankSummary">Bankas kontā: € 0</div>
+        <div class="actions" style="margin-top:14px">
+          <button class="secondary" onclick="showPage('profile')">Mans profils</button>
+          <button class="secondary" onclick="showPage('bank')">Atvērt banku</button>
+        </div>
       </div>
-    </div>
 
-    <div class="panel">
-      <h2>👤 Tavs spēlētājs</h2>
-      <label for="playerName">Spēles vārds</label>
-      <input id="playerName" maxlength="24" placeholder="Ievadi savu vārdu">
-      <label for="city">Pilsēta</label>
-      <select id="city">
-        <option>Rīga</option>
-        <option>Daugavpils</option>
-        <option>Liepāja</option>
-        <option>Jelgava</option>
-        <option>Ventspils</option>
-        <option>Rēzekne</option>
-        <option>Jūrmala</option>
-      </select>
-      <button class="btn" onclick="saveProfile()">Saglabāt profilu</button>
-      <p class="muted">Šis profils pašlaik tiek saglabāts tikai šajā pārlūkā.</p>
-    </div>
+      <h2>🎮 Spēles izvēlne</h2>
+      <div class="grid">
+        <button class="tile" onclick="showPage('bank')"><span class="icon">💶</span><strong>Banka</strong><small>Nauda un pārskaitījumi</small></button>
+        <button class="tile" onclick="showPage('work')"><span class="icon">💼</span><strong>Darbs</strong><small>Strādā un pelni</small></button>
+        <button class="tile" onclick="showPage('cars')"><span class="icon">🚗</span><strong>Automašīnas</strong><small>Pērc un reģistrē</small></button>
+        <button class="tile" onclick="showPage('csdd')"><span class="icon">🪪</span><strong>CSDD</strong><small>Apliecības un reģistrācija</small></button>
+        <button class="tile" onclick="showPage('police')"><span class="icon">👮</span><strong>Policija</strong><small>Sodi un noteikumi</small></button>
+        <button class="tile" onclick="showPage('hospital')"><span class="icon">🏥</span><strong>Slimnīca</strong><small>Veselība un ārstēšana</small></button>
+        <button class="tile" onclick="showPage('homes')"><span class="icon">🏠</span><strong>Manas mājas</strong><small>Pērc savu māju</small></button>
+      </div>
+      <div class="card" style="margin-top:15px">
+        <h3>📋 Pēdējie notikumi</h3>
+        <div id="recentLog" class="small">Pagaidām nav notikumu.</div>
+      </div>
+    </section>
 
-    <h2>🏙️ Latvijas iestādes</h2>
-    <div class="grid" id="mainGrid"></div>
+    <section id="profile" class="page hidden">
+      <div class="card">
+        <h2>👤 Mans profils</h2>
+        <div class="item"><div class="small">Spēlētāja vārds</div><div class="item-title" id="profileName"></div></div>
+        <div class="item"><div class="small">Nauda</div><div class="item-title" id="profileCash"></div></div>
+        <div class="item"><div class="small">Bankas konts</div><div class="item-title" id="profileBank"></div></div>
+        <div class="item"><div class="small">Darbs</div><div class="item-title" id="profileJob"></div></div>
+        <div class="item"><div class="small">Vadītāja apliecība</div><div class="item-title" id="profileLicense"></div></div>
+        <div class="item"><div class="small">Mājas</div><div class="item-title" id="profileHomes"></div></div>
+        <label for="citySelect">Pilsēta</label>
+        <select id="citySelect">
+          <option>Rīga</option><option>Daugavpils</option><option>Liepāja</option>
+          <option>Jelgava</option><option>Ventspils</option><option>Jūrmala</option>
+          <option>Rēzekne</option><option>Valmiera</option>
+        </select>
+        <button class="primary" onclick="changeCity()">Saglabāt pilsētu</button>
+        <hr style="border-color:var(--border);margin:20px 0">
+        <h3>Spēles dati</h3>
+        <button class="secondary" onclick="exportSave()">Eksportēt saglabājumu</button>
+        <p class="small">Saglabājums atrodas šīs ierīces pārlūkā. Notīrot pārlūka datus, tas var tikt izdzēsts.</p>
+      </div>
+    </section>
+
+    <section id="bank" class="page hidden">
+      <div class="card">
+        <h2>🏦 Latvijas banka</h2>
+        <p>Bankas konts: <strong id="bankBalance"></strong></p>
+        <p>Pieejamā skaidrā nauda: <strong id="bankCash"></strong></p>
+        <label for="bankAmount">Summa (€)</label>
+        <input id="bankAmount" type="number" min="1" step="1" placeholder="Ievadi summu">
+        <div class="actions">
+          <button class="primary" onclick="bankAction('deposit')">Iemaksāt</button>
+          <button class="secondary" onclick="bankAction('withdraw')">Izņemt</button>
+        </div>
+        <div id="bankMessage" class="small" style="margin-top:12px"></div>
+      </div>
+    </section>
+
+    <section id="work" class="page hidden">
+      <div class="card">
+        <h2>💼 Darba birža</h2>
+        <p>Izvēlies darbu un nopelni naudu. Spēles algas ir izdomātas.</p>
+        <div id="jobsList"></div>
+      </div>
+    </section>
+
+    <section id="cars" class="page hidden">
+      <div class="card">
+        <h2>🚗 Automašīnu salons</h2>
+        <p id="carFunds"></p>
+        <div id="carShop"></div>
+        <h3 style="margin-top:20px">Manas automašīnas</h3>
+        <div id="myCars"></div>
+      </div>
+    </section>
+
+    <section id="csdd" class="page hidden">
+      <div class="card">
+        <h2>🪪 CSDD — spēles pakalpojumi</h2>
+        <div class="notice">Šī ir spēles simulācija, nevis īsts CSDD pakalpojums.</div>
+        <div id="licenseStatus"></div>
+        <div id="licenseAction"></div>
+        <hr style="border-color:var(--border);margin:20px 0">
+        <h3>Transportlīdzekļu reģistrācija</h3>
+        <div id="registrationList"></div>
+      </div>
+    </section>
+
+    <section id="police" class="page hidden">
+      <div class="card">
+        <h2>👮 Policijas iecirknis</h2>
+        <div class="notice">Policijas funkcijas un sodi darbojas tikai spēles ietvaros.</div>
+        <p>Spēles noteikumi: brauc atbildīgi un uzturi kārtību.</p>
+        <div class="item">
+          <div class="item-title">🚦 Neliels satiksmes pārkāpums</div>
+          <div class="item-info">Spēles sods: €150</div>
+          <button class="secondary" onclick="payFine(150,'Neliels satiksmes pārkāpums')">Saņemt sodu €150</button>
+        </div>
+        <div class="item">
+          <div class="item-title">🚨 Nopietns satiksmes pārkāpums</div>
+          <div class="item-info">Spēles sods: €400</div>
+          <button class="secondary" onclick="payFine(400,'Nopietns satiksmes pārkāpums')">Saņemt sodu €400</button>
+        </div>
+        <h3 style="margin-top:20px">Sodu vēsture</h3>
+        <div id="fineHistory"></div>
+      </div>
+    </section>
+
+    <section id="hospital" class="page hidden">
+      <div class="card">
+        <h2>🏥 Pilsētas slimnīca</h2>
+        <p>Veselības līmenis</p>
+        <div class="balance" id="healthValue">100%</div>
+        <div style="background:#26354a;border-radius:20px;height:12px;overflow:hidden">
+          <div id="healthBar" style="width:100%;height:100%;background:#28b779"></div>
+        </div>
+        <p>Ārstēšanās spēlē maksā €200 un atjauno veselību līdz 100%.</p>
+        <button class="primary" onclick="heal()">Saņemt ārstēšanu — €200</button>
+      </div>
+    </section>
+
+    <section id="homes" class="page hidden">
+      <div class="card">
+        <h2>🏠 Mājas un īpašumi</h2>
+        <p id="homeFunds"></p>
+        <div id="homeShop"></div>
+        <h3 style="margin-top:20px">Manas mājas</h3>
+        <div id="myHomes"></div>
+      </div>
+    </section>
   </section>
 
-  <section id="page" class="hidden">
-    <div class="panel">
-      <button class="btn secondary" onclick="goHome()">← Galvenā izvēlne</button>
-      <div id="pageContent" style="margin-top:18px"></div>
-    </div>
-  </section>
+  <footer>LATVIA LIFE RP · Virtuāla spēles ekonomika · Nav saistīts ar valsts iestādēm</footer>
 </main>
 
-<footer>LATVIA LIFE RP © 2026 · Neoficiāla virtuāla lomu spēle</footer>
-
-<nav class="bottom">
-  <button onclick="goHome()"><span>🏠</span>Sākums</button>
-  <button onclick="openSection('Darbs')"><span>💼</span>Darbs</button>
-  <button onclick="openSection('Banka')"><span>🏦</span>Banka</button>
-  <button onclick="openSection('Automašīnas')"><span>🚘</span>Auto</button>
-  <button onclick="openSection('Profils')"><span>👤</span>Profils</button>
+<nav>
+  <button class="active" data-page="home" onclick="showPage('home')"><span>🏠</span>Sākums</button>
+  <button data-page="profile" onclick="showPage('profile')"><span>👤</span>Profils</button>
+  <button data-page="work" onclick="showPage('work')"><span>💼</span>Darbs</button>
+  <button data-page="cars" onclick="showPage('cars')"><span>🚗</span>Auto</button>
+  <button data-page="homes" onclick="showPage('homes')"><span>🏡</span>Mājas</button>
 </nav>
 
 <script>
-const KEY = "latviaLifeRP_v1";
+"use strict";
 
-const defaultState = {
-  name: "",
-  city: "Rīga",
-  money: 500,
-  xp: 0,
-  job: "",
-  cars: [],
-  licenses: [],
-  registeredCars: [],
-  inventory: [],
-  properties: [],
-  bank: 0,
-  fines: [],
-  health: 100,
-  history: ["Izveidots spēles profils."],
-  workedAt: 0
-};
+const SAVE_KEY = "latviaLifeRP_v2_save";
 
-let state;
-try {
-  state = {...defaultState, ...JSON.parse(localStorage.getItem(KEY) || "{}")};
-} catch (e) {
-  state = {...defaultState};
+const jobs = [
+  {id:"courier",name:"📦 Kurjers",salary:180,description:"Piegādā sūtījumus."},
+  {id:"taxi",name:"🚕 Taksometra vadītājs",salary:250,description:"Pārvadā pasažierus."},
+  {id:"mechanic",name:"🔧 Automehāniķis",salary:300,description:"Remontē automašīnas."},
+  {id:"doctor",name:"🩺 Ārsts",salary:350,description:"Palīdzi pilsētas iedzīvotājiem."},
+  {id:"builder",name:"🧱 Būvnieks",salary:280,description:"Piedalies būvniecībā."}
+];
+
+const cars = [
+  {id:"lada",name:"Lada 2107",price:1800},
+  {id:"golf",name:"Volkswagen Golf",price:4500},
+  {id:"bmw",name:"BMW 3. sērija",price:9000},
+  {id:"audi",name:"Audi A6",price:14000},
+  {id:"tesla",name:"Tesla Model 3",price:30000}
+];
+
+const houses = [
+  {id:"room",name:"Istaba kopmītnēs",price:1200,description:"Neliela pirmā dzīvesvieta."},
+  {id:"small",name:"Maza māja",price:12000,description:"Mājīga māja ārpus centra."},
+  {id:"family",name:"Ģimenes māja",price:35000,description:"Plaša māja ģimenei."},
+  {id:"villa",name:"Luksusa villa",price:90000,description:"Plašs un grezns īpašums."}
+];
+
+function freshState(name) {
+  return {
+    name:name,
+    cash:2500,
+    bank:0,
+    job:null,
+    license:false,
+    cars:[],
+    registeredCars:[],
+    homes:[],
+    health:100,
+    city:"Rīga",
+    fines:[],
+    log:["Profils izveidots! Laipni lūdzam Latvijā."],
+    lastWork:0
+  };
 }
 
-const sections = [
-  ["CSDD","🚗","Tiesības un reģistrācija"],
-  ["Policija","👮","Sabiedriskā kārtība"],
-  ["Banka","🏦","Konts un uzkrājumi"],
-  ["Slimnīca","🏥","Veselība un ārstēšana"],
-  ["Darbs","💼","Profesijas un algas"],
-  ["Automašīnas","🚘","Transporta iegāde"],
-  ["Īpašumi","🏠","Mājokļi un īpašumi"],
-  ["Veikali","🛒","Preces un piederumi"],
-  ["Dokumenti","🪪","Tavi spēles dokumenti"],
-  ["Pilsēta","🌆","Latvijas pilsētas"],
-  ["Uzņēmumi","🏢","Biznesa pasaule"],
-  ["Profils","👤","Tava statistika"]
-];
+function loadState() {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) return null;
+    const s = JSON.parse(raw);
+    if (!s || typeof s.name !== "string" ||
+        !Number.isFinite(s.cash) || !Number.isFinite(s.bank)) return null;
+
+    s.cars = Array.isArray(s.cars) ? s.cars : [];
+    s.registeredCars = Array.isArray(s.registeredCars) ? s.registeredCars : [];
+    s.homes = Array.isArray(s.homes) ? s.homes : [];
+    s.fines = Array.isArray(s.fines) ? s.fines : [];
+    s.log = Array.isArray(s.log) ? s.log : [];
+    s.health = Number.isFinite(s.health) ? Math.max(0,Math.min(100,s.health)) : 100;
+    s.license = Boolean(s.license);
+    s.city = typeof s.city === "string" ? s.city : "Rīga";
+    s.lastWork = Number.isFinite(s.lastWork) ? s.lastWork : 0;
+    return s;
+  } catch (e) {
+    return null;
+  }
+}
+
+let state = loadState();
+
+const $ = id => document.getElementById(id);
+const money = n => "€ " + Math.floor(n).toLocaleString("lv-LV");
 
 function save() {
-  localStorage.setItem(KEY, JSON.stringify(state));
-  updateUI();
-}
-
-function esc(value) {
-  return String(value).replace(/[&<>"']/g, c => ({
-    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
-  }[c]));
-}
-
-function updateUI() {
-  document.getElementById("money").textContent = state.money + " €";
-  document.getElementById("level").textContent = Math.floor(state.xp / 100) + 1;
-  document.getElementById("jobStat").textContent = state.job || "Bezdarbnieks";
-  document.getElementById("carsStat").textContent = state.cars.length;
-  document.getElementById("playerName").value = state.name;
-  document.getElementById("city").value = state.city;
-}
-
-function showNotice(message) {
-  const el = document.getElementById("notice");
-  el.textContent = message;
-  el.style.display = "block";
-  clearTimeout(showNotice.timer);
-  showNotice.timer = setTimeout(() => el.style.display = "none", 3000);
-}
-
-function addHistory(message) {
-  state.history.unshift(new Date().toLocaleString("lv-LV") + " — " + message);
-  state.history = state.history.slice(0, 30);
-}
-
-function saveProfile() {
-  const name = document.getElementById("playerName").value.trim();
-  if (!name) return showNotice("Vispirms ievadi spēles vārdu!");
-  state.name = name.slice(0,24);
-  state.city = document.getElementById("city").value;
-  addHistory("Profils atjaunināts.");
-  save();
-  showNotice("Profils saglabāts!");
-}
-
-function goHome() {
-  document.getElementById("home").classList.remove("hidden");
-  document.getElementById("page").classList.add("hidden");
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function page(title, icon, description, html) {
-  document.getElementById("home").classList.add("hidden");
-  document.getElementById("page").classList.remove("hidden");
-  document.getElementById("pageContent").innerHTML =
-    `<h2>${icon} ${esc(title)}</h2><p class="muted">${esc(description)}</p>${html}`;
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function openSection(name) {
-  const actions = {
-    "CSDD": csddPage,
-    "Policija": policePage,
-    "Banka": bankPage,
-    "Slimnīca": hospitalPage,
-    "Darbs": jobsPage,
-    "Automašīnas": carsPage,
-    "Īpašumi": propertiesPage,
-    "Veikali": shopPage,
-    "Dokumenti": documentsPage,
-    "Pilsēta": cityPage,
-    "Uzņēmumi": businessPage,
-    "Profils": profilePage
-  };
-  (actions[name] || goHome)();
-}
-
-function earn(amount, reason) {
-  state.money += amount;
-  state.xp += 10;
-  addHistory(reason + ": +" + amount + " €");
-  save();
-  showNotice("Saņemti " + amount + " €!");
-}
-
-function spend(amount, reason) {
-  if (state.money < amount) {
-    showNotice("Nepietiek naudas! Vajag " + amount + " €.");
+  try {
+    localStorage.setItem(SAVE_KEY,JSON.stringify(state));
+    return true;
+  } catch (e) {
+    alert("Neizdevās saglabāt spēli. Pārbaudi pārlūka iestatījumus.");
     return false;
   }
-  state.money -= amount;
-  addHistory(reason + ": -" + amount + " €");
-  save();
-  return true;
 }
 
-function mainGrid() {
-  document.getElementById("mainGrid").innerHTML = sections.map(s =>
-    `<button class="card" onclick="openSection('${s[0]}')">
-      <span class="icon">${s[1]}</span>
-      <strong>${s[0]}</strong><small>${s[2]}</small>
-    </button>`
-  ).join("");
+function logEvent(message) {
+  state.log.unshift(new Date().toLocaleString("lv-LV") + " — " + message);
+  state.log = state.log.slice(0,30);
 }
 
-function jobsPage() {
-  const jobs = [
-    ["Kurjers",60],["Taksists",90],["Mehāniķis",110],
-    ["Šoferis",100],["Ārsts",130],["Policists",120],
-    ["Veikala darbinieks",70]
-  ];
-  page("Darbs","💼","Izvēlies profesiju un nopelni virtuālu naudu.",
-    `<p>Tava profesija: <strong>${esc(state.job || "Nav izvēlēta")}</strong></p>`+
-    jobs.map(j=>`<div class="item"><strong>${j[0]}</strong><p>Atlīdzība par darba maiņu: ${j[1]} €</p>
-    <div class="actions"><button class="btn" onclick="chooseJob('${j[0]}')">Izvēlēties darbu</button>
-    ${state.job===j[0]?`<button class="btn secondary" onclick="doWork(${j[1]},'${j[0]}')">Strādāt</button>`:""}</div></div>`).join(""));
+function safeText(value) {
+  return String(value).replace(/[&<>"']/g,ch => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[ch]));
 }
 
-function chooseJob(job) {
-  state.job = job;
-  addHistory("Izvēlēts darbs: " + job);
-  save();
-  jobsPage();
-  showNotice("Tu tagad strādā: " + job);
+function startGame() {
+  if (!state) {
+    $("setup").classList.remove("hidden");
+    $("app").classList.add("hidden");
+    $("createBtn").addEventListener("click",createProfile);
+    $("newName").addEventListener("keydown",e=>{
+      if(e.key==="Enter") createProfile();
+    });
+  } else {
+    $("setup").classList.add("hidden");
+    $("app").classList.remove("hidden");
+    render();
+  }
 }
 
-function doWork(pay, job) {
-  const now = Date.now();
-  if (now - state.workedAt < 30000) {
-    showNotice("Nākamā darba maiņa pieejama pēc " +
-      Math.ceil((30000-(now-state.workedAt))/1000) + " sekundēm.");
+function createProfile() {
+  const name = $("newName").value.trim();
+  if (name.length < 2) {
+    alert("Ievadi vārdu, kurā ir vismaz 2 rakstzīmes.");
     return;
   }
-  state.workedAt = now;
-  earn(pay, "Darbs (" + job + ")");
-  jobsPage();
+  state = freshState(name);
+  if (!save()) { state = null; return; }
+  $("setup").classList.add("hidden");
+  $("app").classList.remove("hidden");
+  render();
+  showPage("home");
 }
 
-function bankPage() {
-  page("Banka","🏦","Pārvaldi savu virtuālo naudu.",
-    `<div class="stats">
-      <div class="stat"><small>Nauda pie rokas</small><strong>${state.money} €</strong></div>
-      <div class="stat"><small>Bankas konts</small><strong>${state.bank} €</strong></div>
-    </div>
-    <div class="item"><h3>Iemaksāt bankā</h3>
-      <input id="depositAmount" type="number" min="1" placeholder="Summa €">
-      <button class="btn" onclick="deposit()">Iemaksāt</button>
-    </div>
-    <div class="item"><h3>Izņemt no bankas</h3>
-      <input id="withdrawAmount" type="number" min="1" placeholder="Summa €">
-      <button class="btn" onclick="withdraw()">Izņemt</button>
-    </div>`);
+function showPage(page) {
+  if (!state) return;
+  document.querySelectorAll(".page").forEach(el=>el.classList.add("hidden"));
+  const target = $(page);
+  if (target) target.classList.remove("hidden");
+  document.querySelectorAll("nav button").forEach(btn=>{
+    btn.classList.toggle("active",btn.dataset.page===page);
+  });
+  render();
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function deposit() {
-  const n = Math.floor(Number(document.getElementById("depositAmount").value));
-  if (!Number.isFinite(n) || n <= 0 || n > state.money) return showNotice("Nepareiza summa!");
-  state.money -= n;
-  state.bank += n;
-  addHistory("Iemaksa bankā: " + n + " €");
-  save(); bankPage(); showNotice("Nauda iemaksāta!");
+function bankAction(type) {
+  const amount = Number($("bankAmount").value);
+  if (!Number.isSafeInteger(amount) || amount < 1) {
+    $("bankMessage").textContent = "Ievadi derīgu veselu summu.";
+    return;
+  }
+  if (type==="deposit") {
+    if (amount>state.cash) {
+      $("bankMessage").textContent = "Tev nepietiek skaidras naudas.";
+      return;
+    }
+    state.cash -= amount;
+    state.bank += amount;
+    logEvent("Iemaksāts bankā: "+money(amount));
+    $("bankMessage").textContent = "Nauda veiksmīgi iemaksāta!";
+  } else {
+    if (amount>state.bank) {
+      $("bankMessage").textContent = "Bankas kontā nepietiek līdzekļu.";
+      return;
+    }
+    state.bank -= amount;
+    state.cash += amount;
+    logEvent("Izņemts no bankas: "+money(amount));
+    $("bankMessage").textContent = "Nauda veiksmīgi izņemta!";
+  }
+  $("bankAmount").value="";
+  save();render();
 }
 
-function withdraw() {
-  const n = Math.floor(Number(document.getElementById("withdrawAmount").value));
-  if (!Number.isFinite(n) || n <= 0 || n > state.bank) return showNotice("Nepareiza summa!");
-  state.bank -= n;
-  state.money += n;
-  addHistory("Izņemts no bankas: " + n + " €");
-  save(); bankPage(); showNotice("Nauda izņemta!");
+function chooseJob(id) {
+  const job = jobs.find(j=>j.id===id);
+  if (!job) return;
+  state.job = id;
+  logEvent("Izvēlēts darbs: "+job.name);
+  save();render();
+  alert("Tu tagad strādā: "+job.name);
 }
 
-const vehicles = [
-  {name:"Vecs sedans",price:800},
-  {name:"Kompakts auto",price:2500},
-  {name:"Ģimenes universālis",price:5000},
-  {name:"Sporta automašīna",price:18000},
-  {name:"Apvidus auto",price:12000}
-];
-
-function carsPage() {
-  page("Automašīnas","🚘","Iegādājies transportu savai virtuālajai dzīvei.",
-    `<p>Tev ir ${state.cars.length} transportlīdzekļi.</p>`+
-    vehicles.map((v,i)=>`<div class="item"><strong>🚘 ${v.name}</strong><p>Cena: ${v.price} €</p>
-    <button class="btn" onclick="buyCar(${i})">Pirkt</button></div>`).join("")+
-    `<h3>Mani transportlīdzekļi</h3>`+
-    (state.cars.length?state.cars.map((c,i)=>`<div class="item">${esc(c.name)}<p>Numurs: ${esc(state.registeredCars[i] || "Nav reģistrēts")}</p></div>`).join(""):"<p class='muted'>Tev vēl nav automašīnas.</p>"));
+function workShift() {
+  if (!state.job) {
+    alert("Vispirms izvēlies darbu!");
+    return;
+  }
+  const now = Date.now();
+  const cooldown = 30*1000;
+  const remaining = cooldown-(now-state.lastWork);
+  if (remaining>0) {
+    alert("Nākamo maiņu varēsi sākt pēc "+Math.ceil(remaining/1000)+" sekundēm.");
+    return;
+  }
+  const job = jobs.find(j=>j.id===state.job);
+  if (!job) return;
+  state.cash += job.salary;
+  state.lastWork = now;
+  logEvent("Saņemta alga: "+money(job.salary)+" ("+job.name+")");
+  save();render();
+  alert("Maiņa pabeigta! Saņēmi "+money(job.salary)+".");
 }
 
-function buyCar(i) {
-  const v = vehicles[i];
-  if (!v || !spend(v.price,"Automašīnas iegāde")) return;
-  state.cars.push({name:v.name});
-  save(); carsPage(); showNotice("Automašīna iegādāta!");
+function buyCar(id) {
+  const car = cars.find(c=>c.id===id);
+  if (!car || state.cars.includes(id)) return;
+  if (state.cash<car.price) {
+    alert("Tev nepietiek naudas šai automašīnai.");
+    return;
+  }
+  if (!confirm("Pirkt "+car.name+" par "+money(car.price)+"?")) return;
+  state.cash-=car.price;
+  state.cars.push(id);
+  logEvent("Iegādāta automašīna: "+car.name);
+  save();render();
 }
 
-function csddPage() {
-  page("CSDD","🚗","Virtuālā transportlīdzekļu reģistrācija un vadītāja apliecības.",
-    `<div class="item"><h3>Vadītāja apliecība</h3>
-      <p>Virtuālais teorijas eksāmens maksā 100 €.</p>
-      <button class="btn" onclick="licenseExam()">Kārtot eksāmenu</button>
-      <p>Atļaujas: ${esc(state.licenses.join(", ") || "Nav")}</p>
-    </div>
-    <div class="item"><h3>Reģistrēt automašīnu</h3>
-      <p>Reģistrācijas maksa: 75 €.</p>
-      <select id="registerCar">${state.cars.map((c,i)=>`<option value="${i}">${esc(c.name)} — ${i+1}</option>`).join("")}</select>
-      <button class="btn" onclick="registerCar()">Reģistrēt</button>
-    </div>
-    <p class="muted">Šie ir spēles dokumenti, nevis īstas CSDD atļaujas.</p>`);
+function toggleRegistration(id) {
+  if (!state.cars.includes(id)) return;
+  if (state.registeredCars.includes(id)) {
+    alert("Šis transportlīdzeklis jau ir reģistrēts spēlē.");
+    return;
+  }
+  const fee=150;
+  if (state.cash<fee) {
+    alert("Reģistrācijai nepieciešami "+money(fee)+".");
+    return;
+  }
+  state.cash-=fee;
+  state.registeredCars.push(id);
+  logEvent("Reģistrēta automašīna: "+cars.find(c=>c.id===id).name);
+  save();render();
 }
 
-function licenseExam() {
-  if (state.licenses.includes("B kategorija")) return showNotice("Tev jau ir B kategorija!");
-  if (!spend(100,"Virtuālais eksāmens")) return;
-  state.licenses.push("B kategorija");
-  state.xp += 20;
-  save(); csddPage(); showNotice("Apsveicam! Iegūta B kategorijas spēles apliecība!");
+function getLicense() {
+  const fee=500;
+  if (state.license) return;
+  if (state.cash<fee) {
+    alert("Vadītāja apliecībai nepieciešami "+money(fee)+".");
+    return;
+  }
+  if (!confirm("Iegādāties spēles vadītāja apliecību par "+money(fee)+"?")) return;
+  state.cash-=fee;
+  state.license=true;
+  logEvent("Iegūta spēles vadītāja apliecība");
+  save();render();
 }
 
-function registerCar() {
-  const i = Number(document.getElementById("registerCar").value);
-  if (!state.cars[i]) return showNotice("Vispirms iegādājies automašīnu!");
-  if (state.registeredCars[i]) return showNotice("Šis auto jau reģistrēts!");
-  if (!spend(75,"Auto reģistrācija")) return;
-  state.registeredCars[i] = "LL-" + Math.floor(1000 + Math.random()*9000);
-  save(); csddPage(); showNotice("Automašīna reģistrēta!");
-}
-
-function policePage() {
-  page("Policija","👮","Virtuāla policijas lomu spēles sadaļa.",
-    `<div class="item"><h3>Policijas dienests</h3>
-      <p>Izvēlies policista profesiju sadaļā Darbs, lai spēlētu policista lomu.</p>
-      <button class="btn" onclick="chooseJob('Policists');policePage()">Pievienoties policijai</button>
-    </div>
-    <div class="item"><h3>Virtuāls pārkāpuma protokols</h3>
-      <label for="fineReason">Pārkāpums</label>
-      <select id="fineReason"><option>Ātruma pārsniegšana</option><option>Stāvēšanas noteikumu pārkāpums</option><option>Transportlīdzekļa dokumentu trūkums</option></select>
-      <label for="fineAmount">Sods (€)</label>
-      <select id="fineAmount"><option value="50">50 €</option><option value="100">100 €</option><option value="200">200 €</option></select>
-      <button class="btn" onclick="issueFine()">Izrakstīt sev spēles sodu</button>
-    </div>
-    <p class="muted">Sodi ir tikai virtuāli. Šī sadaļa nav īsts policijas pakalpojums.</p>`);
-}
-
-function issueFine() {
-  const reason = document.getElementById("fineReason").value;
-  const amount = Number(document.getElementById("fineAmount").value);
-  state.fines.push({reason,amount});
-  state.money = Math.max(0,state.money-amount);
-  addHistory("Virtuāls sods: " + reason);
-  save(); policePage(); showNotice("Spēles sods reģistrēts.");
-}
-
-function hospitalPage() {
-  page("Slimnīca","🏥","Atjauno sava spēlētāja veselību.",
-    `<div class="stat"><small>Veselība</small><strong>${state.health}%</strong></div>
-    <div class="item"><h3>Ārsta konsultācija</h3><p>Ārstēšanas maksa: 100 €.</p>
-    <button class="btn" onclick="heal()">Ārstēties</button></div>
-    <p class="muted">Spēles veselības rādītājs neietekmē reālo veselību.</p>`);
+function payFine(amount,reason) {
+  if (state.cash<amount) {
+    alert("Tev nepietiek skaidras naudas, lai samaksātu šo spēles sodu.");
+    return;
+  }
+  if (!confirm("Saņemt spēles sodu "+money(amount)+" par: "+reason+"?")) return;
+  state.cash-=amount;
+  state.fines.unshift({amount,reason,date:new Date().toLocaleString("lv-LV")});
+  logEvent("Spēles sods: "+money(amount)+" — "+reason);
+  save();render();
 }
 
 function heal() {
-  if (state.health >= 100) return showNotice("Tava veselība jau ir pilna!");
-  if (!spend(100,"Ārstēšana")) return;
-  state.health = 100;
-  save(); hospitalPage(); showNotice("Veselība atjaunota!");
+  if (state.health>=100) {
+    alert("Tava veselība jau ir 100%!");
+    return;
+  }
+  if (state.cash<200) {
+    alert("Ārstēšanai nepieciešami €200.");
+    return;
+  }
+  state.cash-=200;
+  state.health=100;
+  logEvent("Slimnīcā atjaunota veselība");
+  save();render();
+  alert("Ārstēšana pabeigta!");
 }
 
-const homes = [
-  {name:"Istaba kopmītnēs",price:1500},
-  {name:"Mazs dzīvoklis",price:10000},
-  {name:"Ģimenes māja",price:45000},
-  {name:"Liela privātmāja",price:100000}
-];
-
-function propertiesPage() {
-  page("Īpašumi","🏠","Iegādājies mājokli savam spēlētājam.",
-    homes.map((h,i)=>`<div class="item"><strong>${h.name}</strong><p>Cena: ${h.price} €</p>
-    <button class="btn" onclick="buyHome(${i})">Pirkt</button></div>`).join("")+
-    `<h3>Mani īpašumi</h3>${state.properties.map(esc).join("<br>") || "Vēl nav īpašumu."}`);
-}
-
-function buyHome(i) {
-  const h = homes[i];
-  if (state.properties.includes(h.name)) return showNotice("Šis īpašums tev jau pieder!");
-  if (!spend(h.price,"Īpašuma iegāde")) return;
-  state.properties.push(h.name);
-  save(); propertiesPage(); showNotice("Īpašums iegādāts!");
-}
-
-const goods = [
-  {name:"Ēdiens",price:20},
-  {name:"Apģērbs",price:100},
-  {name:"Telefons",price:300},
-  {name:"Instrumentu komplekts",price:250}
-];
-
-function shopPage() {
-  page("Veikali","🛒","Pērc virtuālas preces.",
-    goods.map((g,i)=>`<div class="item"><strong>${g.name}</strong><p>Cena: ${g.price} €</p>
-    <button class="btn" onclick="buyGood(${i})">Pirkt</button></div>`).join("")+
-    `<h3>Tavas preces</h3><p>${state.inventory.map(esc).join(", ") || "Tev vēl nav preču."}</p>`);
-}
-
-function buyGood(i) {
-  const g = goods[i];
-  if (!spend(g.price,"Preces iegāde")) return;
-  state.inventory.push(g.name);
-  save(); shopPage(); showNotice("Prece iegādāta!");
-}
-
-function documentsPage() {
-  page("Dokumenti","🪪","Tavi virtuālie spēles dokumenti.",
-    `<div class="item"><strong>Spēles personas karte</strong><p>Vārds: ${esc(state.name || "Nav norādīts")}</p><p>Pilsēta: ${esc(state.city)}</p></div>
-    <div class="item"><strong>Vadītāja apliecība</strong><p>${esc(state.licenses.join(", ") || "Nav iegūta")}</p></div>
-    <div class="item"><strong>Transportlīdzekļu reģistrācija</strong><p>${state.registeredCars.filter(Boolean).length} reģistrēti transportlīdzekļi.</p></div>
-    <p class="muted">Šie dokumenti ir tikai spēles rekvizīti.</p>`);
-}
-
-function cityPage() {
-  const cities = ["Rīga","Daugavpils","Liepāja","Jelgava","Ventspils","Rēzekne","Jūrmala"];
-  page("Pilsēta","🌆","Izvēlies pilsētu savai virtuālajai dzīvei.",
-    cities.map(c=>`<div class="item"><strong>🌆 ${c}</strong>
-    <div class="actions"><button class="btn ${state.city===c?"secondary":""}" onclick="travel('${c}')">${state.city===c?"Pašreizējā pilsēta":"Doties uz pilsētu"}</button></div></div>`).join(""));
-}
-
-function travel(city) {
-  state.city = city;
-  addHistory("Pārcēlies uz pilsētu: " + city);
-  save(); cityPage(); showNotice("Tagad tu esi pilsētā " + city + "!");
-}
-
-function businessPage() {
-  page("Uzņēmumi","🏢","Iegādājies virtuālu uzņēmumu.",
-    `<div class="item"><strong>Neliels veikals</strong><p>Cena: 20000 €</p>
-    <button class="btn" onclick="buyBusiness('Neliels veikals',20000)">Pirkt</button></div>
-    <d
+function buyHome(id) {
+  const home=houses.find(h=>h.id===id);
+  if (!home || state.homes.includes(id)) return;
+  if (state.cash<home.price) {
+    alert("Tev nepietiek naudas šīs mājas iegādei.");
+    return;
+  }
+  if (!confirm("Pirkt īpašumu '"+home.name+"' par "+money(home.price)+"?
