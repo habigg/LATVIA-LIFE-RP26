@@ -1,167 +1,183 @@
-<!DOCTYPE html><html lang="lv">
+<!DOCTYPE html>
+<html lang="lv">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
   <title>LATVIA LIFE RP</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #10141d;
-      color: #fff;
+      background: #101827;
+      color: white;
     }
+
     header {
       padding: 24px 16px;
       text-align: center;
-      background: linear-gradient(135deg, #650d25, #171b2b);
-      border-bottom: 3px solid #e5bd55;
+      background: #172438;
+      border-bottom: 3px solid #39b86b;
     }
-    header h1 { margin: 0; font-size: 28px; }
-    header p { color: #ddd; margin-bottom: 0; }
-    main { max-width: 850px; margin: auto; padding: 16px; }
-    .card {
-      background: #1b2230;
-      border: 1px solid #303b50;
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    header p {
+      color: #b8c7d9;
+      margin-bottom: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px 14px;
+    }
+
+    .welcome {
+      padding: 22px;
       border-radius: 14px;
-      padding: 18px;
-      margin: 14px 0;
+      background: #1b2b40;
+      margin-bottom: 22px;
     }
-    h2 { color: #f1ca69; margin-top: 0; }
-    input, button {
-      width: 100%;
-      padding: 13px;
-      margin: 7px 0;
-      border-radius: 8px;
-      font-size: 16px;
+
+    .welcome h2 {
+      margin-top: 0;
     }
-    input {
-      background: #10141d;
-      color: white;
-      border: 1px solid #46536b;
-    }
-    button {
-      border: 0;
-      background: #e5bd55;
-      color: #171717;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button.secondary { background: #344158; color: white; }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
     }
-    .hidden { display: none; }
-    .muted { color: #b8c1d1; font-size: 13px; }
-    #message { white-space: pre-wrap; }
+
+    .card {
+      background: #1b2b40;
+      border: 1px solid #31445c;
+      padding: 18px 12px;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      color: white;
+      font-size: 16px;
+    }
+
+    .card:hover {
+      background: #263c55;
+    }
+
+    .icon {
+      font-size: 30px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    #info {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: #1b2b40;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 12px;
+      color: #9aabc0;
+      font-size: 13px;
+    }
+
+    @media (min-width: 600px) {
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>🇱🇻 LATVIA LIFE RP</h1>
-    <p>Car Parking Multiplayer 1 • Latvijas lomu spēles kopiena</p>
-  </header>  <main>
-    <section class="card" id="auth">
-      <h2>👤 Spēlētāja konts</h2>
-      <p>Izveido savu RP profilu vai atver esošo profilu šajā ierīcē.</p>
-      <input id="name" placeholder="Spēlētāja vārds">
-      <input id="password" type="password" placeholder="Parole">
-      <button onclick="register()">Reģistrēties</button>
-      <button class="secondary" onclick="login()">Pieslēgties</button>
-      <p class="muted">Svarīgi: šī ir demonstrācijas versija. Neizmanto īstu vai citur lietotu paroli.</p>
-    </section><section class="card hidden" id="dashboard">
-  <h2 id="welcome">Sveicināts!</h2>
-  <p>Spēlētāja ID: <strong id="playerId">—</strong></p>
-  <p>RP bankas atlikums: <strong id="balance">€ 1000</strong></p>
-  <div class="grid">
-    <button onclick="showInfo('Banka','Šeit vēlāk būs konta pārskats un pārskaitījumi.')">🏦 Banka</button>
-    <button onclick="showInfo('Darbi','Šeit vēlāk būs darbi un algas.')">💼 Darbi</button>
-    <button onclick="showInfo('Policija','Šeit vēlāk būs policijas panelis un sodi.')">🚔 Policija</button>
-    <button onclick="showInfo('Transportlīdzekļi','Šeit vēlāk būs auto reģistrs un vadītāja apliecības.')">🚘 Auto reģistrs</button>
-    <button onclick="showInfo('Administrācija','Administratora panelis tiks pievienots vēlāk.')">🛡️ Administrācija</button>
-  </div>
-  <button class="secondary" onclick="logout()">Iziet no profila</button>
-</section>
+    <p>Tava virtuālā dzīve Latvijā</p>
+  </header>
 
-<section class="card">
-  <h2 id="infoTitle">📋 Par serveri</h2>
-  <p id="infoText">LATVIA LIFE RP ir paredzēts Latvijas RP kopienai. Šī vietne ir atsevišķa no pašas Car Parking Multiplayer spēles.</p>
-</section>
-<p id="message"></p>
+  <main class="container">
+    <section class="welcome">
+      <h2>Sveicināts Latvijā!</h2>
+      <p>Izvēlies, ko vēlies darīt savā virtuālajā dzīvē.</p>
+      <p>💶 Nauda: <strong id="money">500 €</strong></p>
+      <p>👤 Spēlētājs: <strong id="player">Viesis</strong></p>
+    </section>
 
-  </main>  <script>
-    const get = id => document.getElementById(id);
-    const accountsKey = "llrp_demo_accounts";
-    const sessionKey = "llrp_demo_session";
+    <section class="grid">
+      <button class="card" onclick="openSection('CSDD')">
+        <span class="icon">🚗</span>CSDD
+      </button>
+      <button class="card" onclick="openSection('Policija')">
+        <span class="icon">👮</span>Policija
+      </button>
+      <button class="card" onclick="openSection('Banka')">
+        <span class="icon">🏦</span>Banka
+      </button>
+      <button class="card" onclick="openSection('Slimnīca')">
+        <span class="icon">🏥</span>Slimnīca
+      </button>
+      <button class="card" onclick="openSection('Darbs')">
+        <span class="icon">💼</span>Darbs
+      </button>
+      <button class="card" onclick="openSection('Īpašumi')">
+        <span class="icon">🏠</span>Īpašumi
+      </button>
+      <button class="card" onclick="openSection('Automašīnas')">
+        <span class="icon">🚘</span>Automašīnas
+      </button>
+      <button class="card" onclick="openSection('Dokumenti')">
+        <span class="icon">🪪</span>Dokumenti
+      </button>
+      <button class="card" onclick="openSection('Veikali')">
+        <span class="icon">🛒</span>Veikali
+      </button>
+    </section>
 
-    function say(text) { get("message").textContent = text; }
+    <section id="info">
+      <h2 id="sectionTitle"></h2>
+      <p id="sectionText"></p>
+      <button class="card" onclick="closeSection()">⬅ Atpakaļ</button>
+    </section>
+  </main>
 
-    function loadAccounts() {
-      try { return JSON.parse(localStorage.getItem(accountsKey) || "{}"); }
-      catch { return {}; }
+  <footer>
+    LATVIA LIFE RP © 2026 · Virtuāla lomu spēle
+  </footer>
+
+  <script>
+    function openSection(name) {
+      const descriptions = {
+        'CSDD': 'Šeit būs transportlīdzekļu reģistrācija, vadītāja apliecības un braukšanas eksāmeni.',
+        'Policija': 'Šeit būs policijas darbs, pakāpes, patruļas un virtuālie sodi.',
+        'Banka': 'Šeit būs spēlētāja konts, nauda, algas un pārskaitījumi.',
+        'Slimnīca': 'Šeit būs ārstu darbs, ārstēšana un neatliekamā palīdzība.',
+        'Darbs': 'Šeit varēsi izvēlēties profesiju un nopelnīt virtuālo naudu.',
+        'Īpašumi': 'Šeit varēsi iegādāties virtuālas mājas, dzīvokļus un uzņēmumus.',
+        'Automašīnas': 'Šeit būs automašīnu veikals, remonts un transportlīdzekļu pārvaldība.',
+        'Dokumenti': 'Šeit būs tavi virtuālie personas dokumenti un atļaujas.',
+        'Veikali': 'Šeit varēsi iegādāties virtuālas preces un citus priekšmetus.'
+      };
+
+      document.getElementById('sectionTitle').textContent = name;
+      document.getElementById('sectionText').textContent = descriptions[name];
+      document.getElementById('info').style.display = 'block';
+      document.getElementById('info').scrollIntoView({ behavior: 'smooth' });
     }
 
-    function register() {
-      const name = get("name").value.trim();
-      const password = get("password").value;
-      if (name.length < 3 || password.length < 6) {
-        say("Vārds: vismaz 3 rakstzīmes. Parole: vismaz 6 rakstzīmes.");
-        return;
-      }
-      const accounts = loadAccounts();
-      const key = name.toLowerCase();
-      if (accounts[key]) {
-        say("Šāds profils jau eksistē šajā ierīcē. Izmanto pieslēgšanos.");
-        return;
-      }
-      const id = "LV-" + Math.floor(100000 + Math.random() * 900000);
-      accounts[key] = { name, password, id, balance: 1000 };
-      localStorage.setItem(accountsKey, JSON.stringify(accounts));
-      localStorage.setItem(sessionKey, key);
-      openDashboard(accounts[key]);
-      say("Profils izveidots! Šie dati glabājas tikai šajā pārlūkā.");
+    function closeSection() {
+      document.getElementById('info').style.display = 'none';
     }
-
-    function login() {
-      const name = get("name").value.trim();
-      const password = get("password").value;
-      const accounts = loadAccounts();
-      const key = name.toLowerCase();
-      if (!accounts[key] || accounts[key].password !== password) {
-        say("Profila vārds vai parole nav pareiza, vai profils nav izveidots šajā ierīcē.");
-        return;
-      }
-      localStorage.setItem(sessionKey, key);
-      openDashboard(accounts[key]);
-      say("Pieslēgšanās veiksmīga!");
-    }
-
-    function openDashboard(account) {
-      get("auth").classList.add("hidden");
-      get("dashboard").classList.remove("hidden");
-      get("welcome").textContent = "Sveicināts, " + account.name + "!";
-      get("playerId").textContent = account.id;
-      get("balance").textContent = "€ " + account.balance;
-    }
-
-    function logout() {
-      localStorage.removeItem(sessionKey);
-      get("dashboard").classList.add("hidden");
-      get("auth").classList.remove("hidden");
-      say("Tu izgāji no profila.");
-    }
-
-    function showInfo(title, text) {
-      get("infoTitle").textContent = title;
-      get("infoText").textContent = text;
-    }
-
-    const current = localStorage.getItem(sessionKey);
-    if (current) {
-      const accounts = loadAccounts();
-      if (accounts[current]) openDashboard(accounts[current]);
-    }
-  </script></body>
+  </script>
+</body>
 </html>
